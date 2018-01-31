@@ -4,8 +4,9 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/shared.module';
-import {AboutModule} from './module/about/about.module';
+import {AboutModule} from './about/about.module';
 import {AuthGuard} from './guard/auth.guard';
+import {HomeModule} from './home/home.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {AuthGuard} from './guard/auth.guard';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HomeModule,
     AboutModule,
     SharedModule.forRoot()
   ],
