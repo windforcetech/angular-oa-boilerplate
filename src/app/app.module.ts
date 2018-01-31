@@ -9,6 +9,7 @@ import {AuthGuard} from './guard/auth.guard';
 import {HomeModule} from './home/home.module';
 import {HomeWorkModule} from './home-work/home-work.module';
 import {ProfileModule} from './profile/profile.module';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {ProfileModule} from './profile/profile.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HomeModule,
     AboutModule,
