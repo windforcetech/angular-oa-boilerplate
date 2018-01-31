@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {AppComponent} from './app.component';
 import {AboutComponent} from './about/about.component';
 import {AuthGuard} from './guard/auth.guard';
 import {HomeComponent} from './home/home.component';
+import {HomeWorkComponent} from './home-work/home-work.component';
 
 @NgModule({
   imports: [
@@ -14,8 +14,12 @@ import {HomeComponent} from './home/home.component';
       },
       {
         path: 'about',
-        canActivate: [AuthGuard],
         component: AboutComponent
+      },
+      {
+        path: 'home-work',
+        canActivate: [AuthGuard],
+        component: HomeWorkComponent
       }
     ])
   ],

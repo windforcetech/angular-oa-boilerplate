@@ -7,6 +7,7 @@ import {SharedModule} from './shared/shared.module';
 import {AboutModule} from './about/about.module';
 import {AuthGuard} from './guard/auth.guard';
 import {HomeModule} from './home/home.module';
+import {HomeWorkModule} from './home-work/home-work.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {HomeModule} from './home/home.module';
     AppRoutingModule,
     HomeModule,
     AboutModule,
+    HomeWorkModule,
     SharedModule.forRoot()
   ],
   providers: [AuthGuard],
