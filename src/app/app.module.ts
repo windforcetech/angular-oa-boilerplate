@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/shared.module';
 import {AboutModule} from './module/about/about.module';
+import {AuthGuard} from './guard/auth.guard';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import {AboutModule} from './module/about/about.module';
     AboutModule,
     SharedModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
