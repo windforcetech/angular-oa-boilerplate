@@ -4,6 +4,7 @@ import {AboutComponent} from './about/about.component';
 import {AuthGuard} from './guard/auth.guard';
 import {HomeComponent} from './home/home.component';
 import {HomeWorkComponent} from './home-work/home-work.component';
+import {ProfileComponent} from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,10 @@ import {HomeWorkComponent} from './home-work/home-work.component';
         path: 'home-work',
         canActivate: [AuthGuard],
         component: HomeWorkComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
       }
     ])
   ],
