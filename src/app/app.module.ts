@@ -4,11 +4,11 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/shared.module';
-import {AboutModule} from './about/about.module';
+import {AboutModule} from './pages/about/about.module';
 import {AuthGuard} from './guard/auth.guard';
-import {HomeModule} from './home/home.module';
-import {HomeWorkModule} from './home-work/home-work.module';
-import {ProfileModule} from './profile/profile.module';
+import {HomeModule} from './pages/home/home.module';
+import {HomeWorkModule} from './pages/home-work/home-work.module';
+import {ProfileModule} from './pages/profile/profile.module';
 import {FormsModule} from '@angular/forms';
 
 

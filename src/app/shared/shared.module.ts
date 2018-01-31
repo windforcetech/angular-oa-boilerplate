@@ -5,12 +5,13 @@ import {RouterModule} from '@angular/router';
 
 import {NavbarComponent} from './navbar/navbar.component';
 import {StorageServices} from '../services/storage.service';
+import {KeysPipe} from '../pipes/KeysPipe';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, KeysPipe],
   exports: [NavbarComponent,
-    CommonModule, FormsModule, RouterModule]
+    CommonModule, FormsModule, RouterModule, KeysPipe]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
