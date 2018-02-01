@@ -54,4 +54,9 @@ export class ProfileComponent implements OnChanges, OnInit {
       role: ''
     });
   }
+
+  onLogout() {
+    this.isLogin = false;
+    this.authService.logout();
+  }
 }

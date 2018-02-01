@@ -21,7 +21,7 @@ export class AuthService {
 
   get authenticated(): boolean {
     const token = localStorage.getItem('token');
-    return token !== '';
+    return token !== '' && token;
   }
 
   private setLoggedIn(value: boolean) {
@@ -29,7 +29,7 @@ export class AuthService {
     this.loggedIn = value;
   }
 
-  private logout() {
+  logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('userinfo');
     this.setLoggedIn(false);
