@@ -7,13 +7,13 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {StorageServices} from '../services/storage.service';
 import {KeysPipe} from '../pipes/KeysPipe';
 import {AuthService} from '../services/auth.service';
-import {MifaFontDirective} from './directive/mifa.h1.directive';
+import {MifaH1Directive} from './directive/mifa.h1.directive';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [NavbarComponent, KeysPipe, MifaFontDirective],
+  declarations: [NavbarComponent, KeysPipe, MifaH1Directive],
   exports: [NavbarComponent,
-    CommonModule, FormsModule, RouterModule, KeysPipe, MifaFontDirective]
+    CommonModule, FormsModule, RouterModule, KeysPipe, MifaH1Directive]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

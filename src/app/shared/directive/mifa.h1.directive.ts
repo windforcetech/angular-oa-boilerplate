@@ -1,8 +1,8 @@
 import {Directive, ElementRef, OnInit, Renderer2} from '@angular/core';
 
-@Directive({ selector: '[appMifaFont]' })
+@Directive({ selector: '[appMifaH1]' })
 
-export class MifaFontDirective implements OnInit {
+export class MifaH1Directive implements OnInit {
   private elem: ElementRef;
   private renderer: Renderer2;
 
