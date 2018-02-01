@@ -17,7 +17,7 @@
         <label for="f"></label>
         <select formControlName="role" id="f" name="role">
           <option [ngValue]="null" disabled>choose you role</option>
-          <option *ngFor="let item of roles" value="{{item}}">{{item}}</option>
+          <option *ngFor="let item of roles | keys" value="{{item.value}}">{{item.key}}</option>
         </select>
       </div>
       <button type="submit" class="btn btn-primary" >Submit</button>

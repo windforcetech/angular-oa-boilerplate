@@ -26,7 +26,7 @@ export class ProfileComponent implements OnChanges, OnInit {
   userForm: FormGroup;
   closeResult: string;
   isLogin: boolean;
-  roles = ['admin', 'approver', 'user'];
+  roles = Roles;
 
   constructor(private fb: FormBuilder, private storageServices: StorageServices,
               private modalService: NgbModal, private authService: AuthService) {
