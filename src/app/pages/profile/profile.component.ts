@@ -1,4 +1,6 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 import {User} from '../../models/User';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {StorageServices} from '../../services/storage.service';
@@ -18,10 +20,12 @@ enum Roles {
 export class ProfileComponent implements OnChanges, OnInit {
   @Input() user: User;
   userForm: FormGroup;
+  closeResult: string;
   isLogin: boolean;
   roles = ['admin', 'approver', 'user'];
 
-  constructor(private fb: FormBuilder, private storageServices: StorageServices, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private storageServices: StorageServices,
+              private modalService: NgbModal, private authService: AuthService) {
     this.createForm();
     this.isLogin = authService.authenticated;
   }
@@ -42,6 +46,11 @@ export class ProfileComponent implements OnChanges, OnInit {
       email: formModel.email as string,
       role: formModel.role as string
     }));
+    this.modalService.open('登录成功').result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed`;
+    });
     this.isLogin = true;
     this.storageServices.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9' +
       '.eyJlbWFpbCI6ImhAcGhvZGFsLmNvbSIsInJvbGUiOiJhZG1pbiJ9.VP0a6NqqNvD4fuuVeYujhB4E92hct0WFI6cX77Ih3T8');
