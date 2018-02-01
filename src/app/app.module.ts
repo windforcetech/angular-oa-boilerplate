@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/shared.module';
 import {AboutModule} from './pages/about/about.module';
-import {AuthGuard} from './guard/auth.guard';
+import {AuthGuard} from './services/guard/auth.guard';
 import {HomeModule} from './pages/home/home.module';
 import {HomeWorkModule} from './pages/home-work/home-work.module';
 import {ProfileModule} from './pages/profile/profile.module';
