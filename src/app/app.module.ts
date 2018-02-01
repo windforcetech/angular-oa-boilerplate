@@ -10,6 +10,7 @@ import {HomeModule} from './pages/home/home.module';
 import {HomeWorkModule} from './pages/home-work/home-work.module';
 import {ProfileModule} from './pages/profile/profile.module';
 import {FormsModule} from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -18,13 +19,15 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     FormsModule,
     AppRoutingModule,
     HomeModule,
     AboutModule,
     HomeWorkModule,
     ProfileModule,
-    SharedModule.forRoot()
+    SharedModule.forRoot(),
+    NgbModule.forRoot()
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
