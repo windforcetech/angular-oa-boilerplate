@@ -5,6 +5,7 @@ import {User} from '../../models/User';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {StorageServices} from '../../services/storage.service';
 import {AuthService} from '../../services/auth.service';
+import {PageTrack} from '../../decorators/PageTrack';
 
 enum Roles {
   Admin = 'admin',
@@ -17,6 +18,8 @@ enum Roles {
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
+@PageTrack('ProfileComponent')
 export class ProfileComponent implements OnChanges, OnInit {
   @Input() user: User;
   userForm: FormGroup;

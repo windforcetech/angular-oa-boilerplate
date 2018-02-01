@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {PageTrack} from '../../decorators/PageTrack';
 
 @Component({
   moduleId: module.id,
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: 'about.component.html',
   styleUrls: ['about.component.css']
 })
+
+@PageTrack('AboutComponent')
 export class AboutComponent { }
