@@ -6,6 +6,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {StorageServices} from '../../services/storage.service';
 import {AuthService} from '../../services/auth.service';
 import {PageTrack} from '../../decorators/PageTrack';
+import {Role} from '../../decorators/RoleDecorator';
 
 enum Roles {
   Admin = 'admin',

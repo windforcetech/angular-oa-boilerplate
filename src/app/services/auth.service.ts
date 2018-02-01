@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {Profile} from 'selenium-webdriver/firefox';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Profile} from '../models/Profile';
 
 @Injectable()
 export class AuthService {
@@ -21,6 +21,10 @@ export class AuthService {
   get authenticated(): boolean {
     const token = localStorage.getItem('token');
     return token !== '' && !!token;
+  }
+
+  get role(): string {
+    return this.profile.role;
   }
 
   private setLoggedIn(value: boolean) {

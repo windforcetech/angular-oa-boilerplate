@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PageTrack} from '../../decorators/PageTrack';
+import {Role} from '../../decorators/RoleDecorator';
 
 @Component({
   selector: 'app-home-work',
@@ -7,6 +8,7 @@ import {PageTrack} from '../../decorators/PageTrack';
   styleUrls: ['./home-work.component.css']
 })
 
+@Role('admin')
 @PageTrack('HomeWorkComponent')
 export class HomeWorkComponent implements OnInit {
 
