@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Profile} from '../models/Profile';
+import {StorageServices} from './storage.service';
 
 @Injectable()
 export class AuthService {
@@ -9,7 +10,7 @@ export class AuthService {
   loggedIn: boolean;
   loggedIn$ = new BehaviorSubject<boolean>(this.loggedIn);
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private localStorageService: StorageServices) {
     if (this.authenticated) {
       this.profile = JSON.parse(localStorage.getItem('profile'));
       this.setLoggedIn(true);
@@ -19,7 +20,7 @@ export class AuthService {
   }
 
   get authenticated(): boolean {
-    const token = localStorage.getItem('token');
+    const token = this.localStorageService.getItem('token');
     return token !== '' && !!token;
   }
 
@@ -33,8 +34,8 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userinfo');
+    this.localStorageService.removeItem('token');
+    this.localStorageService.removeItem('userinfo');
     this.setLoggedIn(false);
   }
 }

@@ -6,7 +6,7 @@ export class StorageServices {
   constructor() {}
 
   getItem(key: string) {
-
+    return this.localStorage.getItem(key);
   }
 
   setItem(key: string, value: string) {
@@ -14,6 +14,10 @@ export class StorageServices {
   }
 
   removeItem(key: string) {
+    this.localStorage.removeItem(key);
+  }
 
+  clear() {
+    this.localStorage.clear();
   }
 }
