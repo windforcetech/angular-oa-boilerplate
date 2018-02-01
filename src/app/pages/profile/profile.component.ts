@@ -35,11 +35,13 @@ export class ProfileComponent implements OnChanges, OnInit {
   onRegister(): void {
     const formModel = this.userForm.value;
 
-    this.storageServices.setItem('userInfo', {
+    this.storageServices.setItem('userInfo', JSON.stringify({
       email: formModel.email as string,
       password: formModel.password as string,
       role: formModel.role as string
-    });
+    }));
+    this.storageServices.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9' +
+      '.eyJlbWFpbCI6ImhAcGhvZGFsLmNvbSIsInJvbGUiOiJhZG1pbiJ9.VP0a6NqqNvD4fuuVeYujhB4E92hct0WFI6cX77Ih3T8');
   }
 
   private createForm() {

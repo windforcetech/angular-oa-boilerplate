@@ -9,8 +9,8 @@ export class StorageServices {
 
   }
 
-  setItem(key: string, value: object) {
-    this.localStorage.setItem(key, JSON.stringify(value));
+  setItem(key: string, value: string) {
+    this.localStorage.setItem(key, value);
   }
 
   removeItem(key: string) {
