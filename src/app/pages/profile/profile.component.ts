@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {User} from '../../models/User';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {KeysPipe} from '../../pipes/KeysPipe';
+import {StorageServices} from '../../services/storage.service';
 
 enum Roles {
   Admin = 'admin',
@@ -20,7 +21,7 @@ export class ProfileComponent implements OnChanges, OnInit {
   private userForm: FormGroup;
   roles = ['admin', 'approver', 'user'];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private storageServices: StorageServices) {
     this.createForm();
   }
 
@@ -34,7 +35,13 @@ export class ProfileComponent implements OnChanges, OnInit {
   }
 
   onRegister(): void {
+    const formModel = this.userForm.value;
 
+    this.storageServices.setItem('userInfo', {
+      email: formModel.email as string,
+      password: formModel.password as string,
+      role: formModel.role as string
+    });
   }
 
   private createForm() {
