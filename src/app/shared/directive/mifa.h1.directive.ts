@@ -12,7 +12,6 @@ export class MifaFontDirective implements OnInit {
   }
 
   ngOnInit() {
-    this.renderer.setAttribute(this.elem.nativeElement, 'color', '#384452');
-    this.renderer.setAttribute(this.elem.nativeElement, 'font-size', '32px');
+    this.renderer.setAttribute(this.elem.nativeElement, 'style', 'color: #384452; font-size: 32px;');
   }
 }
