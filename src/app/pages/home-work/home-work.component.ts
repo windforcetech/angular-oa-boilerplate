@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, DoCheck, OnInit} from '@angular/core';
 import {PageTrack} from '../../decorators/PageTrack';
 import {Role} from '../../decorators/RoleDecorator';
 import {AuthService} from '../../services/auth.service';
@@ -16,19 +16,21 @@ class PermissionComponent {
 
 @Role({type: 'action'})
 @PageTrack('HomeWorkComponent')
-export class HomeWorkComponent extends PermissionComponent implements OnInit {
+export class HomeWorkComponent extends PermissionComponent implements OnInit, AfterViewInit {
   private authService: AuthService;
   private role: any;
 
   constructor(authService: AuthService) {
     super();
     this.authService = authService;
+    this.role = this.authService.role;
   }
 
-  ngOnInit() {
-    if (this.authService) {
-      this.role = this.authService.role;
-    }
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+
   }
 
   getRole() {
