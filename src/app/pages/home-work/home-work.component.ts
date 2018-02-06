@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PageTrack} from '../../decorators/PageTrack';
 import {Role} from '../../decorators/RoleDecorator';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-home-work',
@@ -8,13 +9,31 @@ import {Role} from '../../decorators/RoleDecorator';
   styleUrls: ['./home-work.component.css']
 })
 
-@Role('admin')
+@Role({type: 'action'})
 @PageTrack('HomeWorkComponent')
 export class HomeWorkComponent implements OnInit {
+  private authService: AuthService;
+  private role: any;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(authService: AuthService) {
+    this.authService = authService;
   }
 
+  ngOnInit() {
+    if (this.authService) {
+      this.role = this.authService.role;
+    }
+  }
+
+  getRole() {
+    return this.role;
+  }
+
+  adminAction() {
+    console.log('adminAction');
+  }
+
+  userAction() {
+    console.log('userAction');
+  }
 }

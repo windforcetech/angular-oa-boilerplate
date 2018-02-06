@@ -12,7 +12,6 @@ export class AuthService {
 
   constructor(private router: Router, private localStorageService: StorageServices) {
     if (this.authenticated) {
-      this.profile = JSON.parse(localStorage.getItem('profile'));
       this.setLoggedIn(true);
     } else {
       this.logout();
@@ -25,7 +24,11 @@ export class AuthService {
   }
 
   get role(): string {
-    return this.profile.role;
+    this.profile = JSON.parse(this.localStorageService.getItem('userInfo'));
+    if (this.profile && this.profile.role) {
+      return this.profile.role;
+    }
+    return undefined;
   }
 
   private setLoggedIn(value: boolean) {
@@ -35,7 +38,7 @@ export class AuthService {
 
   logout() {
     this.localStorageService.removeItem('token');
-    this.localStorageService.removeItem('userinfo');
+    this.localStorageService.removeItem('userInfo');
     this.setLoggedIn(false);
   }
 }

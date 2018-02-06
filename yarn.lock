@@ -4438,6 +4438,10 @@ multicast-dns@^6.0.1:
     dns-packet "^1.3.1"
     thunky "^1.0.2"
 
+mus@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/mus/-/mus-0.0.4.tgz#804dee76d2e14f2d18f67b64bc56cdef5e90a01b"
+
 nan@^2.3.0, nan@^2.3.2:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.8.0.tgz#ed715f3fe9de02b57a5e6252d90a96675e1f085a"
