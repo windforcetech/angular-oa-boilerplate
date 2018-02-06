@@ -7,10 +7,12 @@ import {StorageServices} from './storage.service';
 @Injectable()
 export class AuthService {
   private profile: Profile;
+  private localStorageService;
   loggedIn: boolean;
   loggedIn$ = new BehaviorSubject<boolean>(this.loggedIn);
 
-  constructor(private router: Router, private localStorageService: StorageServices) {
+  constructor() {
+    this.localStorageService = new StorageServices();
     if (this.authenticated) {
       this.setLoggedIn(true);
     } else {
