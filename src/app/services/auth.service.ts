@@ -43,4 +43,13 @@ export class AuthService {
     this.localStorageService.removeItem('userInfo');
     this.setLoggedIn(false);
   }
+
+  getToken() {
+    const token = this.localStorageService.getItem('token');
+    const hasToken = token !== '' && !!token;
+    if (hasToken) {
+      return token;
+    }
+    return undefined;
+  }
 }

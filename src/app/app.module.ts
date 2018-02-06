@@ -12,6 +12,8 @@ import {AuthGuard} from './services/guard/auth.guard';
 import {HomeModule} from './pages/home/home.module';
 import {HomeWorkModule} from './pages/home-work/home-work.module';
 import {ProfileModule} from './pages/profile/profile.module';
+import {TokenInterceptor} from './services/interceptor/token.interceptor';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import {ProfileModule} from './pages/profile/profile.module';
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
+    HttpClientModule,
     ChartsModule,
     FormsModule,
     AppRoutingModule,
@@ -30,7 +33,11 @@ import {ProfileModule} from './pages/profile/profile.module';
     ProfileModule,
     SharedModule.forRoot()
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
