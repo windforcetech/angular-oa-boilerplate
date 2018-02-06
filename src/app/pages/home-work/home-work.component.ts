@@ -5,7 +5,13 @@ import {AuthService} from '../../services/auth.service';
 
 
 class PermissionComponent {
+  adminAction() {
+    console.log('adminAction');
+  }
 
+  userAction() {
+    console.log('userAction');
+  }
 }
 
 @Component({
@@ -16,7 +22,7 @@ class PermissionComponent {
 
 @Role({type: 'action'})
 @PageTrack('HomeWorkComponent')
-export class HomeWorkComponent extends PermissionComponent{
+export class HomeWorkComponent extends PermissionComponent {
   private authService: AuthService;
   private role: any;
 
@@ -24,13 +30,5 @@ export class HomeWorkComponent extends PermissionComponent{
     super();
     this.authService = authService;
     this.role = this.authService.role;
-  }
-
-  adminAction() {
-    console.log('adminAction');
-  }
-
-  userAction() {
-    console.log('userAction');
   }
 }

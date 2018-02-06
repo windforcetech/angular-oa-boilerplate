@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.authenticated) {
       return true;
     } else {
-      this.router.navigate(['/']);  // {4}
+      this.router.navigate(['/']);
       console.log('未授权');
       return false;
     }
