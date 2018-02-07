@@ -58,9 +58,9 @@ export class ProfileComponent implements OnChanges, OnInit {
       }
     })
       .subscribe(data => {
-        console.log('Rebirth Modal -> Get ok with result:', data);
+
       }, error => {
-        console.error('Rebirth Modal -> Get cancel with result:', error);
+
       });
     this.isLogin = true;
     this.storageServices.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9' +
