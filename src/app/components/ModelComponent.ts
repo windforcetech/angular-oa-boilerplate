@@ -35,7 +35,7 @@ export class ModelComponent implements Modal, OnInit {
   }
 
   ngOnInit(): void {
-    console.log('ModalTestComponent init....');
+
   }
 
   show() {
