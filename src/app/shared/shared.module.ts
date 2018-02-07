@@ -2,6 +2,7 @@ import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {RebirthNGModule} from 'rebirth-ng';
 
 import {NavbarComponent} from './navbar/navbar.component';
 import {StorageServices} from '../services/storage.service';
@@ -10,7 +11,7 @@ import {AuthService} from '../services/auth.service';
 import {MifaH1Directive} from './directive/mifa.h1.directive';
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, RebirthNGModule],
   declarations: [NavbarComponent, KeysPipe, MifaH1Directive],
   exports: [NavbarComponent,
     CommonModule, FormsModule, RouterModule, KeysPipe, MifaH1Directive]

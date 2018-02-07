@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {ChartsModule} from 'ng2-charts/ng2-charts';
+import {RebirthNGModule} from 'rebirth-ng';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -21,6 +22,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    RebirthNGModule.forRoot(),
     HttpClientModule,
     ChartsModule,
     FormsModule,
