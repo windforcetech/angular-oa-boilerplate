@@ -1,10 +1,12 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, ComponentFactoryResolver, Input, OnChanges, OnInit} from '@angular/core';
 
 import {User} from '../../models/User';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {StorageServices} from '../../services/storage.service';
 import {AuthService} from '../../services/auth.service';
 import {PageTrack} from '../../decorators/PageTrack';
+import {ModalService} from 'rebirth-ng';
+import {ModelComponent} from '../../components/ModelComponent';
 
 enum Roles {
   Admin = 'admin',
@@ -22,11 +24,11 @@ enum Roles {
 export class ProfileComponent implements OnChanges, OnInit {
   @Input() user: User;
   userForm: FormGroup;
-  closeResult: string;
   isLogin: boolean;
   roles = Roles;
 
-  constructor(private fb: FormBuilder, private storageServices: StorageServices, private authService: AuthService) {
+  constructor(private modalService: ModalService, private componentFactoryResolver: ComponentFactoryResolver,
+              private fb: FormBuilder, private storageServices: StorageServices, private authService: AuthService) {
     this.createForm();
     this.isLogin = authService.authenticated;
   }
@@ -47,11 +49,18 @@ export class ProfileComponent implements OnChanges, OnInit {
       email: formModel.email as string,
       role: formModel.role as string
     }));
-    // this.modalService.open('登录成功').result.then((result) => {
-    //   this.closeResult = `Closed with: ${result}`;
-    // }, (reason) => {
-    //   this.closeResult = `Dismissed`;
-    // });
+    this.modalService.open<string>({
+      component: ModelComponent,
+      componentFactoryResolver: this.componentFactoryResolver,
+      resolve: {
+        text: '登录成功'
+      }
+    })
+      .subscribe(data => {
+        console.log('Rebirth Modal -> Get ok with result:', data);
+      }, error => {
+        console.error('Rebirth Modal -> Get cancel with result:', error);
+      });
     this.isLogin = true;
     this.storageServices.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9' +
       '.eyJlbWFpbCI6ImhAcGhvZGFsLmNvbSIsInJvbGUiOiJhZG1pbiJ9.VP0a6NqqNvD4fuuVeYujhB4E92hct0WFI6cX77Ih3T8');

@@ -14,15 +14,22 @@ import {HomeWorkModule} from './pages/home-work/home-work.module';
 import {ProfileModule} from './pages/profile/profile.module';
 import {RequestInterceptor} from './services/interceptor/token.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {ModelComponent} from './components/ModelComponent';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModelComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot([]),
+    SharedModule.forRoot(),
     RebirthNGModule.forRoot(),
+    BrowserAnimationsModule,
     HttpClientModule,
     ChartsModule,
     FormsModule,
@@ -31,7 +38,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
     AboutModule,
     HomeWorkModule,
     ProfileModule,
-    SharedModule.forRoot()
+  ],
+  entryComponents: [
+    ModelComponent
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,
