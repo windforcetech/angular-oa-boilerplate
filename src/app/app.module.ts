@@ -12,7 +12,7 @@ import {AuthGuard} from './services/guard/auth.guard';
 import {HomeModule} from './pages/home/home.module';
 import {HomeWorkModule} from './pages/home-work/home-work.module';
 import {ProfileModule} from './pages/profile/profile.module';
-import {TokenInterceptor} from './services/interceptor/token.interceptor';
+import {RequestInterceptor} from './services/interceptor/token.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 
@@ -35,7 +35,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
+    useClass: RequestInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent]
