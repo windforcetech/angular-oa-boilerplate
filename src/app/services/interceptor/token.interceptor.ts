@@ -27,22 +27,16 @@ export class RequestInterceptor implements HttpInterceptor {
 
         }
       }),
-      catchError(this.handleError<any>())
+      catchError((error: any): Observable<any> => {
+        if ((error.status === 400) || (error.status === 401)) {
+          alert(JSON.stringify(error));
+          this.injector.get(Router).navigate(['/']);
+        } else {
+          alert(JSON.stringify(error));
+          return Observable.throw(error);
+        }
+        return of(new Observable<any>());
+      })
     );
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      if ((error.status === 400) || (error.status === 401)) {
-        alert(JSON.stringify(error));
-        this.injector.get(Router).navigate(['/']);
-      } else {
-        alert(JSON.stringify(error));
-        return Observable.throw(error);
-      }
-
-      return of(result as T);
-    };
-
   }
 }
