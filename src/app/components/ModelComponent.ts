@@ -1,4 +1,4 @@
-import {Component, EventEmitter, ComponentFactoryResolver, ChangeDetectionStrategy, OnInit} from '@angular/core';
+import {Component, ComponentFactoryResolver, EventEmitter, OnInit} from '@angular/core';
 import {Modal, ModalService} from 'rebirth-ng';
 
 @Component({
