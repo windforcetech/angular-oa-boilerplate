@@ -24,9 +24,9 @@ export class HomeWorkComponent implements PermissionComponent, OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get('https://example.com/api/things')
+    this.http.get<UserResponse>('https://api.github.com/users/phodal')
       .subscribe(
-        data => console.log(data),
+        data => console.log(data.login),
         err => console.log(err)
       );
   }
