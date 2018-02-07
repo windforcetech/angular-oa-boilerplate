@@ -53,7 +53,8 @@ export class ProfileComponent implements OnChanges, OnInit {
       component: ModelComponent,
       componentFactoryResolver: this.componentFactoryResolver,
       resolve: {
-        text: '登录成功'
+        title: '登录成功',
+        text: formModel.email + ' 登录成功'
       }
     })
       .subscribe(data => {
