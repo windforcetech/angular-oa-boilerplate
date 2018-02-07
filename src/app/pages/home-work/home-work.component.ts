@@ -15,6 +15,7 @@ import {HttpClient} from '@angular/common/http';
 export class HomeWorkComponent implements PermissionComponent, OnInit {
   private authService: AuthService;
   private role: any;
+  public githubUser: UserResponse;
   private http: HttpClient;
 
   constructor(authService: AuthService, http: HttpClient) {
@@ -26,7 +27,7 @@ export class HomeWorkComponent implements PermissionComponent, OnInit {
   ngOnInit(): void {
     this.http.get<UserResponse>('https://api.github.com/users/phodal')
       .subscribe(
-        data => console.log(data.login),
+        data => this.githubUser = data,
         err => console.log(err)
       );
   }
