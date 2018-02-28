@@ -19,10 +19,12 @@ export class HomeComponent {
 
   public chartClicked(e: any): void {
     console.log(e);
+    throw new Error('test');
   }
 
   public chartHovered(e: any): void {
     console.log(e);
+
   }
 
 }

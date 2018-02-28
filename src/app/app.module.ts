@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {ChartsModule} from 'ng2-charts/ng2-charts';
 import {RebirthNGModule} from 'rebirth-ng';
@@ -17,6 +17,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ModelComponent} from './components/ModelComponent';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
+import {GlobalErrorHandler} from './services/handler/GlobalErrorHandler';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,9 @@ import {RouterModule} from '@angular/router';
     provide: HTTP_INTERCEPTORS,
     useClass: RequestInterceptor,
     multi: true
+  }, {
+    provide: ErrorHandler,
+    useClass: GlobalErrorHandler
   }],
   bootstrap: [AppComponent]
 })
