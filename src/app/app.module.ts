@@ -17,8 +17,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ModelComponent} from './components/ModelComponent';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
-import { RoleMenuComponent } from './shared/role-menu/role-menu.component';
-
 
 @NgModule({
   declarations: [
