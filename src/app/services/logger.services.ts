@@ -2,12 +2,11 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 
 export abstract class Logger {
-  off: any;
   error: any;
   warn: any;
   info: any;
   debug: any;
-  all: any;
+  log: any;
 }
 
 const noop = (): any => undefined;
@@ -15,27 +14,23 @@ export let isDebugMode = environment.production;
 
 @Injectable()
 export class LoggerService implements Logger {
-  get off() {
-    return noop;
+  error(message?: any, ...optionalParams: any[]) {
+    return console.error.apply(console, arguments );
   }
 
-  get error() {
-    return noop;
+  warn(message?: any, ...optionalParams: any[]) {
+    return console.warn.apply(console, arguments );
   }
 
-  get warn() {
-    return noop;
+  info(message?: any, ...optionalParams: any[]) {
+    return console.info.apply(console, arguments );
   }
 
-  get info() {
-    return noop;
+  debug(message?: any, ...optionalParams: any[]) {
+    return console.debug.apply(console, arguments );
   }
 
-  get debug() {
-    return noop;
-  }
-
-  get all() {
-    return noop;
+  log(message?: any, ...optionalParams: any[]) {
+    return console.log.apply(console, arguments );
   }
 }

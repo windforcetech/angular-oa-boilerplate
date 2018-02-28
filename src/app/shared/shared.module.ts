@@ -10,6 +10,7 @@ import {KeysPipe} from './pipes/KeysPipe';
 import {AuthService} from '../services/auth.service';
 import {MifaH1Directive} from './directive/mifa.h1.directive';
 import {RoleMenuComponent} from './role-menu/role-menu.component';
+import {LoggerService} from '../services/logger.services';
 
 @NgModule({
   imports: [CommonModule, RouterModule, RebirthNGModule],
@@ -21,7 +22,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [AuthService, StorageServices]
+      providers: [AuthService, StorageServices, LoggerService]
     };
   }
 }
