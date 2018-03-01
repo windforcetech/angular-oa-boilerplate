@@ -56,6 +56,7 @@ const AnalyticsHelper = {
       generateMousePath();
     }
     const logInfo = {
+      path: window.location.pathname,
       url: window.location.href,
       path0: null,
       path1: null

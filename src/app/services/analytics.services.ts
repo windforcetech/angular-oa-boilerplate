@@ -20,6 +20,7 @@ export class AnalyticsService {
       behavior: 'enter',
       date: new Date(),
       pageName: pageName,
+      path: window.location.pathname,
       url: window.location.href,
     };
     this.logger.log(message);
@@ -31,6 +32,7 @@ export class AnalyticsService {
       behavior: 'leave',
       date: new Date(),
       pageName: pageName,
+      path: window.location.pathname,
       url: window.location.href,
     };
     this.logger.log(message);
