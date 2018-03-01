@@ -42,6 +42,12 @@ const generateMousePath = function () {
   }
 };
 
+const getInnerHtml = function(dom: HTMLElement) {
+  const div = document.createElement('div');
+  div.appendChild(dom.cloneNode());
+  return div.innerHTML;
+};
+
 const AnalyticsHelper = {
   ClickLogger: function (mouseEvent) {
     console.log(mouseEvent);
@@ -50,7 +56,9 @@ const AnalyticsHelper = {
       generateMousePath();
     }
     console.log({
-      path: convertJson.path
+      url: window.location.href,
+      path0: getInnerHtml(convertJson.path[0]),
+      path1: getInnerHtml(convertJson.path[1])
     });
 
     localStorage.setItem('log', convertJson.path);
