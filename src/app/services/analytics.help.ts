@@ -42,7 +42,7 @@ const generateMousePath = function () {
   }
 };
 
-const getInnerHtml = function(dom: HTMLElement) {
+const getInnerHtml = function (dom: HTMLElement) {
   const div = document.createElement('div');
   div.appendChild(dom.cloneNode());
   return div.innerHTML;
@@ -55,13 +55,22 @@ const AnalyticsHelper = {
     if (!convertJson.path) {
       generateMousePath();
     }
-    console.log({
+    const logInfo = {
       url: window.location.href,
-      path0: getInnerHtml(convertJson.path[0]),
-      path1: getInnerHtml(convertJson.path[1])
-    });
+      path0: null,
+      path1: null
+    };
 
-    localStorage.setItem('log', convertJson.path);
+    if (convertJson.path[0]) {
+      logInfo.path0 = getInnerHtml(convertJson.path[0]);
+    }
+    if (convertJson.path[1]) {
+      logInfo.path1 = getInnerHtml(convertJson.path[1]);
+    }
+
+    console.log(logInfo);
+
+    localStorage.setItem('log', JSON.stringify(logInfo));
   }
 };
 
