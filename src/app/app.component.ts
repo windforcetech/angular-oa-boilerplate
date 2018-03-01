@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, HostListener, OnInit, ViewContainerRef} from '@angular/core';
 import {RebirthNGConfig} from 'rebirth-ng';
 
 @Component({
@@ -7,6 +7,11 @@ import {RebirthNGConfig} from 'rebirth-ng';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  @HostListener('document:click', ['$event'])
+  onDocumentClicked(ev) {
+    console.log('clicked', ev);
+  }
+
   constructor(private rebirthNGConfig: RebirthNGConfig,
               private viewContainerRef: ViewContainerRef) {
 
