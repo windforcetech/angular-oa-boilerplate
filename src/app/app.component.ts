@@ -1,5 +1,6 @@
 import {Component, HostListener, OnInit, ViewContainerRef} from '@angular/core';
 import {RebirthNGConfig} from 'rebirth-ng';
+import AnalyticsHelper from './services/analytics.help';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,8 @@ import {RebirthNGConfig} from 'rebirth-ng';
 })
 export class AppComponent implements OnInit {
   @HostListener('document:click', ['$event'])
-  onDocumentClicked(ev) {
-    console.log('clicked', ev);
+  onDocumentClicked(event) {
+    AnalyticsHelper.ClickLogger(event);
   }
 
   constructor(private rebirthNGConfig: RebirthNGConfig,
